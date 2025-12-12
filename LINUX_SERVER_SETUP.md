@@ -7,7 +7,7 @@ This guide covers setting up DMTS MK4 on a Linux server with CUDA support.
 ## Prerequisites
 
 ### Hardware Requirements
-- **GPU**: NVIDIA GPU with CUDA support (recommended: 8GB+ VRAM)
+- **GPU**: NVIDIA GPU with CUDA support (40GB+ VRAM recommended for Hybrid backend)
 - **RAM**: 16GB+ recommended
 - **Storage**: ~20GB for models
 
@@ -115,11 +115,13 @@ Open your browser to: `http://localhost:8890`
 
 ### Translation Backends
 
-| Backend | Script | Speed | Languages | VRAM |
-|---------|--------|-------|-----------|------|
-| Hybrid (Recommended) | `run_server_hybrid.sh` | Medium | 200+ | ~16GB |
-| NLLB | `run_server_nllb.sh` | Fast | 200+ | ~8GB |
-| Hunyuan | `run_server_hunyuan.sh` | Slow | 38 | ~14GB |
+| Backend | Script | Speed | Languages |
+|---------|--------|-------|-----------|
+| Hybrid (Recommended) | `run_server_hybrid.sh` | Medium | 200+ |
+| NLLB | `run_server_nllb.sh` | Fast | 200+ |
+| Hunyuan | `run_server_hunyuan.sh` | Slow | 38 |
+
+**Note**: VRAM requirements vary significantly based on model sizes and configurations. Hybrid backend with all models loaded requires ~38GB+ VRAM.
 
 ### Key Parameters
 
@@ -267,7 +269,7 @@ tail -f logs/transcript.log
 ## Notes
 
 1. **First Run**: Expect 5-10 minutes for model loading
-2. **VRAM**: Hybrid backend needs ~16GB VRAM for all models
+2. **VRAM**: Hybrid backend needs ~38GB VRAM for all models
 3. **CPU Fallback**: Server auto-falls back to CPU if CUDA unavailable
 4. **Logs**: Transcription logs saved to `logs/transcript.log`
 5. **Audio**: Sentence audio saved to `saved_audio/` directory
