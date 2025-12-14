@@ -34,7 +34,7 @@ A real-time speech-to-text server with **speaker diarization**, **multilingual t
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/DMTS.git
+git clone https://github.com/CaKTono/DMTS.git
 cd DMTS
 
 # Create conda environment

@@ -109,7 +109,7 @@ Fix hallucination detection threshold not being applied correctly.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<username>/DMTS.git
+   git clone https://github.com/CaKTono/DMTS.git
    cd DMTS
    ```
 

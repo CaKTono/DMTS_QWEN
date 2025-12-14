@@ -24,7 +24,7 @@ This guide covers setting up DMTS MK4 on a Linux server with CUDA support.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/DMTS.git
+git clone https://github.com/CaKTono/DMTS.git
 cd DMTS
 ```
 
