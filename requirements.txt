@@ -1,57 +1,201 @@
-# DMTS - Diarization, Multilingual Transcription & Translation Server
-# Verified dependencies from production server
+############################
+# Core Application
+############################
+realtimestt==0.3.104
+TTS==0.22.0
+faster-whisper==1.1.1
 
-# =============================================================================
-# Core STT/TTS
-# =============================================================================
-RealtimeSTT>=0.3.104
-TTS>=0.22.0
-faster-whisper>=1.1.0
+############################
+# Async / Networking
+############################
+aiohttp==3.12.15
+aiohttp-cors==0.8.1
+aiohappyeyeballs>=2.5.0
+aiosignal>=1.4.0
+anyio>=3.0
+async-timeout>=4.0
+attrs>=17.3.0
+certifi>=2017.4.17
+charset_normalizer>=2,<4
+frozenlist>=1.1.1
+httpcore==1.*
+httpx==0.28.1
+idna>=3.0
+multidict
+propcache>=0.2.0
+requests==2.32.5
+urllib3
+websocket-client==1.8.0
+websockets==15.0.1
+yarl>=1.17.0,<2.0
 
-# =============================================================================
-# Deep Learning
-# =============================================================================
-torch>=2.0.0
-transformers>=4.35.0
-accelerate>=1.0.0
-safetensors>=0.4.0
-tokenizers>=0.19.0
-
-# =============================================================================
-# Web Server
-# =============================================================================
-aiohttp>=3.8.0
-aiohttp-cors>=0.7.0
-
-# =============================================================================
-# Audio Processing
-# =============================================================================
-scipy>=1.11.0
-librosa>=0.10.0
-soundfile>=0.12.0
-audioread>=3.0.0
-
-# =============================================================================
-# ML/Clustering (for diarization)
-# =============================================================================
+############################
+# Scientific Computing
+############################
+# NumPy pinned for TTS compatibility
+numpy>=1.22.0,<1.23.0
+scipy==1.12.0
 scikit-learn>=1.3.0
-numpy>=1.22.0
+joblib>=1.3.0
+threadpoolctl>=3.0.0
 
-# =============================================================================
+############################
+# Transformers / ML
+############################
+accelerate==1.12.0
+huggingface_hub>=0.20.0,<1.0
+safetensors==0.6.2
+tokenizers==0.22.0
+transformers==4.56.1
+
+############################
+# Audio / Media
+############################
+audioread==3.0.1
+av>=10.0.0
+librosa==0.10.0
+soundfile==0.13.1
+soxr>=0.3.0
+
+############################
+# spaCy (Explicit Pins)
+############################
+spacy==3.8.11
+blis>=1.3.0,<1.4.0
+catalogue>=2.0.6,<2.1.0
+cloudpathlib>=0.7.0,<1.0.0
+confection>=0.1.5,<1.0.0
+cymem>=2.0.2,<2.1.0
+murmurhash>=0.28.0,<1.1.0
+preshed>=3.0.2,<3.1.0
+smart-open>=5.2.1,<8.0.0
+spacy-legacy>=3.0.11,<3.1.0
+spacy-loggers>=1.0.0,<2.0.0
+srsly>=2.4.3,<3.0.0
+thinc>=8.3.4,<8.4.0
+typer-slim>=0.3.0,<1.0.0
+wasabi>=0.9.1,<1.2.0
+weasel>=0.4.2,<0.5.0
+
+############################
+# JIT / Numerical Backend
+############################
+numba>=0.57.0
+llvmlite==0.46.0
+
+############################
+# TTS Transitive Dependencies
+############################
+anyascii>=0.3.0
+bangla
+bnnumerizer
+bnunicodenormalizer
+coqpit
+cython>=0.29.30
+einops>=0.6.0
+encodec>=0.1.1
+flask>=2.0.1
+g2pkk>=0.1.1
+gruut==2.2.3
+hangul-romanize
+inflect>=5.6.0
+jamo
+jieba
+matplotlib>=3.7.0,<3.8.0
+contourpy<1.1.0
+num2words>=0.5.10
+pandas>=1.4,<2.0
+pypinyin
+pysbd>=0.3.4
+trainer>=0.0.32
+unidecode>=1.3.2
+
+############################
 # Utilities
-# =============================================================================
-tqdm>=4.65.0
-pyyaml>=6.0
-regex>=2024.0.0
+############################
+cffi
+click==8.2.1
+colorama==0.4.6
+decorator>=5.0.0
+halo==0.0.31
+lazy_loader>=0.1
+msgpack>=1.0.0
+nltk==3.9.1
+packaging>=21.0
+platformdirs>=3.0.0
+pooch>=1.6.0
+psutil
+pyyaml==6.0.2
+regex==2025.9.1
+tqdm==4.67.1
+typing-extensions==4.15.0
 
-# =============================================================================
-# Optional: For Hunyuan translation (8-bit quantization)
-# =============================================================================
-# bitsandbytes>=0.41.0
+############################
+# Optional / Non-Critical
+############################
+bitsandbytes>=0.41.0
+ctranslate2==4.6.0
+onnxruntime>=1.10.0
+openwakeword==0.6.0
+pvporcupine==1.9.5
+rich==14.1.0
+pillow==11.3.0
+umap-learn>=0.5.1
+webrtcvad-wheels==2.0.14
 
-# =============================================================================
-# Note: The following are typically installed as dependencies:
-# - ctranslate2 (via faster-whisper)
-# - onnxruntime (via openwakeword/silero)
-# - webrtcvad-wheels (via RealtimeSTT)
-# =============================================================================
+############################
+# Time / Date Utilities
+############################
+python-dateutil>=2.8.2
+pytz>=2024.1
+
+############################
+# Compatibility / Shared Pins
+############################
+pydantic>=1.7.4,<3.0.0,!=1.8,!=1.8.1
+protobuf>=3.20,<5
+networkx>=2.5,<3.0
+six>=1.16.0
+
+############################
+# Explicit Transitives (pip --no-deps)
+############################
+absl-py>=1.4.0
+babel>=2.9
+blinker>=1.6
+coloredlogs>=15.0
+cycler>=0.10
+dateparser~=1.1.0
+docopt>=0.6.2
+exceptiongroup>=1.2.0
+flatbuffers>=23.0
+fonttools>=4.22.0
+grpcio>=1.56.0
+gruut-ipa>=0.12.0
+gruut-lang-en>=2.0.0
+h11>=0.14.0
+hf-xet>=1.0.0
+humanfriendly>=10.0
+itsdangerous>=2.1
+jsonlines~=1.2.0
+kiwisolver>=1.0.1
+log_symbols>=0.0.14
+markdown>=3.4.0
+markdown-it-py>=3.0.0
+mdurl>=0.1.2
+more-itertools>=10.0
+pycparser>=2.21
+pygments>=2.16.0
+python-crfsuite>=0.9.9
+spinners>=0.0.24
+tensorboard>=2.13.0
+tensorboard-data-server>=0.7.0
+termcolor>=1.1.0
+tflite-runtime>=2.14.0
+typeguard>=4.0
+tzlocal>=5.0
+werkzeug>=3.0
+wrapt>=1.15.0
+
+# Legacy no-op (Python < 3.4)
+enum34; python_version < "3.4"

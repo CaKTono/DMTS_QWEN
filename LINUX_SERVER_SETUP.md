@@ -9,7 +9,7 @@ This guide covers setting up DMTS MK4 on a Linux server with CUDA support.
 ### Hardware Requirements
 - **GPU**: NVIDIA GPU with CUDA support (40GB+ VRAM recommended for Hybrid backend)
 - **RAM**: 16GB+ recommended
-- **Storage**: ~20GB for models
+- **Storage**: ~40-50GB for models
 
 ### Software Requirements
 - Linux (Ubuntu 20.04+ recommended)

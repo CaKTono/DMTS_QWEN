@@ -25,18 +25,21 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # ============================================================
 # MODEL PATH CONFIGURATION - EDIT THESE PATHS
 # ============================================================
+# Set STORAGE_PATH to where you downloaded your models
+STORAGE_PATH="/path/to/your/models"
+
 # Whisper models for transcription
-WHISPER_MODEL="/path/to/faster-whisper-large-v3"
-WHISPER_MODEL_REALTIME="/path/to/faster-whisper-large-v3-turbo-ct2"
-VERIFICATION_MODEL="/path/to/faster-whisper-large-v3-turbo-ct2"
+WHISPER_MODEL="${STORAGE_PATH}/faster-whisper-large-v3"
+WHISPER_MODEL_REALTIME="${STORAGE_PATH}/faster-whisper-large-v3-turbo-ct2"
+VERIFICATION_MODEL="${STORAGE_PATH}/faster-whisper-large-v3-turbo-ct2"
 
 # Diarization model (Coqui TTS for speaker embeddings)
-DIARIZATION_MODEL="/path/to/XTTS-v2/v2.0.2"
+DIARIZATION_MODEL="${STORAGE_PATH}/XTTS-v2/v2.0.2"
 
 # Translation models
-NLLB_600M="/path/to/nllb-200-distilled-600M"
-NLLB_3_3B="/path/to/nllb-200-3.3B"
-HUNYUAN_MODEL="/path/to/Hunyuan-MT-7B"
+NLLB_600M="${STORAGE_PATH}/nllb-200-distilled-600M"
+NLLB_3_3B="${STORAGE_PATH}/nllb-200-3.3B"
+HUNYUAN_MODEL="${STORAGE_PATH}/Hunyuan-MT-7B"
 
 # ============================================================
 # SERVER CONFIGURATION
@@ -55,7 +58,7 @@ TRANSLATION_LOAD_8BIT="false"
 # ============================================================
 ENABLE_VERIFICATION="true"
 VERIFICATION_COMPUTE_TYPE="float16"
-VERIFICATION_WORD_OVERLAP_THRESHOLD=0.3
+VERIFICATION_WORD_OVERLAP_THRESHOLD=0.05
 VERIFICATION_FIRST_N_SENTENCES=2
 TRANSLATION_CONSISTENCY_THRESHOLD=0.3
 

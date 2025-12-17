@@ -25,11 +25,13 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # ============================================================
 # MODEL PATH CONFIGURATION - EDIT THESE PATHS
 # ============================================================
-WHISPER_MODEL="/path/to/faster-whisper-large-v3"
-WHISPER_MODEL_REALTIME="/path/to/faster-whisper-large-v3-turbo-ct2"
-VERIFICATION_MODEL="/path/to/faster-whisper-large-v3-turbo-ct2"
-DIARIZATION_MODEL="/path/to/XTTS-v2/v2.0.2"
-HUNYUAN_MODEL="/path/to/Hunyuan-MT-7B"
+# Set STORAGE_PATH to where you downloaded your models
+STORAGE_PATH="/path/to/your/models"
+WHISPER_MODEL="${STORAGE_PATH}/faster-whisper-large-v3"
+WHISPER_MODEL_REALTIME="${STORAGE_PATH}/faster-whisper-large-v3-turbo-ct2"
+VERIFICATION_MODEL="${STORAGE_PATH}/faster-whisper-large-v3-turbo-ct2"
+DIARIZATION_MODEL="${STORAGE_PATH}/XTTS-v2/v2.0.2"
+HUNYUAN_MODEL="${STORAGE_PATH}/Hunyuan-MT-7B"
 
 # ============================================================
 # SERVER CONFIGURATION
@@ -50,7 +52,7 @@ SKIP_REALTIME_TRANSLATION="true"
 # ============================================================
 ENABLE_VERIFICATION="true"
 VERIFICATION_COMPUTE_TYPE="float16"
-VERIFICATION_WORD_OVERLAP_THRESHOLD=0.3
+VERIFICATION_WORD_OVERLAP_THRESHOLD=0.05
 VERIFICATION_FIRST_N_SENTENCES=2
 TRANSLATION_CONSISTENCY_THRESHOLD=0.3
 
