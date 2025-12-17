@@ -69,7 +69,7 @@ The `requirements.txt` resolves these by pinning `numpy>=1.23.5`. The `--no-deps
 
 ```bash
 # Install huggingface CLI if needed
-pip install huggingface_hub[cli]
+pip install huggingface_hub[cli] hf_transfer
 
 # Create models directory (from DMTS root)
 mkdir -p models && cd models
