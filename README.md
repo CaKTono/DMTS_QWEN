@@ -94,8 +94,8 @@ cd ..
 
 | Backend | Required Models | VRAM |
 |---------|----------------|------|
-| NLLB-only | Whisper, XTTS-v2, NLLB-600M, NLLB-3.3B | ~20GB |
-| Hunyuan-only | Whisper, XTTS-v2, Hunyuan-MT-7B | ~14GB |
+| NLLB-only | Whisper, XTTS-v2, NLLB-600M, NLLB-3.3B | ~19GB |
+| Hunyuan-only | Whisper, XTTS-v2, Hunyuan-MT-7B | ~22GB |
 | Hybrid | All models | ~38GB |
 
 ## Usage
