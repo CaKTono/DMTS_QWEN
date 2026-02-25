@@ -1,0 +1,20 @@
+# Qwen-native DMTS runtime profile
+# Recommended Python: 3.11+
+
+# Core server runtime
+aiohttp==3.12.15
+aiohttp-cors==0.8.1
+httpx==0.28.1
+numpy<=1.23.5
+scipy==1.15.2
+
+# Qwen / vLLM stack
+torch
+torchaudio
+transformers==4.56.1
+accelerate==1.12.0
+vllm
+
+# Optional if running translation/diarization in same process
+# (Reuse existing DMTS package set)
+-r requirements.txt

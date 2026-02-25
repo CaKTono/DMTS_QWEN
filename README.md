@@ -247,3 +247,64 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 This project uses RealtimeSTT which is licensed under the MIT License.
 Copyright (c) 2023 Kolja Beigel
+
+## Qwen Streaming Server (DMTS-Qwen)
+
+This repository now includes a dedicated Qwen-native server entrypoint:
+
+- `dmts_qwen.py` (no RealtimeSTT dependency)
+- `run_server_qwen.sh`
+- `requirements_qwen.txt`
+
+### Why a dedicated Qwen server?
+
+Qwen ASR can run as a streaming-capable service, so this path avoids forcing Qwen into the RealtimeSTT recorder model.
+The architecture still follows DMTS client-server style:
+
+- `/control`: runtime controls (language/knobs/status)
+- `/data`: metadata+audio binary stream from clients
+- `/stream`: raw audio streaming endpoint
+- `/`: existing index UI
+
+### Real-time streaming behavior
+
+`dmts_qwen.py` handles streaming with per-client session state and async workers:
+
+1. Client audio chunks arrive through websocket.
+2. Each client gets its own ASR session queue/state.
+3. A shared concurrency limiter (`--max_concurrent_asr_requests`) protects GPU capacity.
+4. Realtime text is emitted from rolling audio windows at configured cadence.
+5. Final sentences are emitted after silence timeout and routed to diarization/translation.
+
+This keeps multi-client behavior predictable while allowing GPU scale-up.
+
+### CUDA and scale-up notes
+
+`run_server_qwen.sh` exposes CUDA/vLLM scaling knobs:
+
+- `CUDA_VISIBLE_DEVICES`
+- `TENSOR_PARALLEL_SIZE`
+- `GPU_MEMORY_UTILIZATION`
+- `MAX_MODEL_LEN`
+- `MAX_ACTIVE_SESSIONS`
+- `MAX_CONCURRENT_ASR_REQUESTS`
+
+You can run one vLLM instance for many clients, then scale horizontally with more replicas if needed.
+
+### Quick start (Qwen path)
+
+```bash
+# 1) Create Qwen runtime env (recommended Python 3.11+)
+pip install -r requirements_qwen.txt
+
+# 2) Option A: start vLLM externally, then run server
+./run_server_qwen.sh
+
+# 3) Option B: let script start vLLM first
+START_VLLM=true ./run_server_qwen.sh
+```
+
+### Compatibility note
+
+The original DMTS RealtimeSTT path remains available via `dmts_mk4.py` and existing run scripts.
+`dmts_qwen.py` intentionally disables MK4 verification (faster-whisper-based verifier) to keep backend independence.
