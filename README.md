@@ -4,6 +4,15 @@ A real-time speech-to-text server with **speaker diarization**, **multilingual t
 
 https://github.com/user-attachments/assets/2d5dfd22-d5c2-4c88-a334-324eb5ae4741
 
+## Project Status
+
+This repository is currently **work in progress**.
+
+- `dmts_qwen.py` is under active development and is not fully production-ready yet.
+- APIs, runtime requirements, and streaming behavior may still change.
+- Please expect rough edges while the Qwen server path is being stabilized.
+
+
 ## Features
 
 ### Core Capabilities
@@ -255,6 +264,15 @@ This repository now includes a dedicated Qwen-native server entrypoint:
 - `dmts_qwen.py` (no RealtimeSTT dependency)
 - `run_server_qwen.sh`
 - `requirements_qwen.txt`
+
+### WIP Notice
+
+This Qwen path is **not finished yet**.
+
+- Current implementation is functional for early testing.
+- Production hardening (load testing, failure handling, and deployment playbooks) is still in progress.
+- Some defaults and interfaces may change as the server is finalized.
+
 
 ### Why a dedicated Qwen server?
 
